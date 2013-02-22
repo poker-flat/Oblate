@@ -14,3 +14,16 @@ To release Oblate, simply build the project and copy Oblate.jar from the build f
 desired location and run Oblate.jar from there (either via a GUI or the command line):
 
     $ java -jar Oblate.jar
+
+Distributing
+------------
+
+You can distribute the app how ever you wish, but I what use right now is
+One-Jar. Check out http://one-jar.sourceforge.net/ and read all the
+documentation.
+
+To distribute the app using One-Jar, in NetBeans right click on the `build.xml`
+file in your files list and select `Run Target > dist-all`. Oblate will be
+built and distributed into the local `dist` folder. Versions for all platforms,
+Windows, Mac, Linux, and the original app will be provided.
+
