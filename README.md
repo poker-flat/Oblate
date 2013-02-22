@@ -3,6 +3,12 @@ Oblate
 
 Oblate is a Java app that was created in the Netbeans environment.
 
+Latest Version
+--------------
+
+You can find the latest stable version of Oblate here:
+http://apps.pfrr.alaska.edu/oblate
+
 Development
 -----------
 
