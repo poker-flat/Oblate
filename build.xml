@@ -77,7 +77,7 @@
 <!-- provide the path to the shared native libraries directory -->
 <property name="natives.dir" value="lib/"/>
 <!-- provide a base name for your executable. -->
-<property name="standalone.jar.name" value="OblateApp"/>
+<property name="standalone.jar.name" value="Oblate-1.1"/>
 
     <import file="one-jar-ant-task.xml" />
     <target name="dist-all" depends="jar"

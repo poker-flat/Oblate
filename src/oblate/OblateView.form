@@ -115,6 +115,7 @@
                 <Property name="name" type="java.lang.String" value="ddLat" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ddLatFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ddLatKeyReleased"/>
               </Events>
             </Component>
@@ -124,6 +125,7 @@
                 <Property name="name" type="java.lang.String" value="ddLon" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ddLonFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ddLonKeyReleased"/>
               </Events>
             </Component>
@@ -414,6 +416,7 @@
                 <Property name="name" type="java.lang.String" value="nauticalMiles" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nauticalMilesFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="nauticalMilesKeyReleased"/>
               </Events>
             </Component>
@@ -423,6 +426,7 @@
                 <Property name="name" type="java.lang.String" value="miles" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="milesFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="milesKeyReleased"/>
               </Events>
             </Component>
@@ -432,6 +436,7 @@
                 <Property name="name" type="java.lang.String" value="kilometers" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="kilometersFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="kilometersKeyReleased"/>
               </Events>
             </Component>
@@ -441,6 +446,7 @@
                 <Property name="name" type="java.lang.String" value="yards" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="yardsFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="yardsKeyReleased"/>
               </Events>
             </Component>
@@ -450,6 +456,7 @@
                 <Property name="name" type="java.lang.String" value="feet" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="feetFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="feetKeyReleased"/>
               </Events>
             </Component>
@@ -459,6 +466,7 @@
                 <Property name="name" type="java.lang.String" value="meters" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="metersFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="metersKeyReleased"/>
               </Events>
             </Component>
@@ -552,6 +560,7 @@
                 <Property name="name" type="java.lang.String" value="ddFLat" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ddFLatFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ddFLatKeyReleased"/>
               </Events>
             </Component>
@@ -561,6 +570,7 @@
                 <Property name="name" type="java.lang.String" value="ddFLon" noResource="true"/>
               </Properties>
               <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="ddFLonFocusLost"/>
                 <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="ddFLonKeyReleased"/>
               </Events>
             </Component>

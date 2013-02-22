@@ -106,6 +106,10 @@ public class OblateView extends FrameView {
         return false;
     }
 
+    public void clearStatusMsg() {
+        this.statusMessageLabel.setText("");
+    }
+    
     public boolean checkAndSetNullLatValue(String str) {
         if (str.equals("")) {
             this.ddLat.setText("");
@@ -162,7 +166,7 @@ public class OblateView extends FrameView {
             }
             ret[0] = new BigDecimal(f.intValue()).setScale(0, BigDecimal.ROUND_HALF_EVEN);
             ret[1] = new BigDecimal(f.subtract(ret[0]).multiply(new BigDecimal(60)).intValue()).setScale(0, BigDecimal.ROUND_HALF_EVEN);
-            ret[2] = new BigDecimal(f.subtract(ret[0]).multiply(new BigDecimal(60)).subtract(ret[1]).multiply(new BigDecimal(60)).toString()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            ret[2] = new BigDecimal(f.subtract(ret[0]).multiply(new BigDecimal(60)).subtract(ret[1]).multiply(new BigDecimal(60)).toString()).setScale(4, BigDecimal.ROUND_HALF_EVEN);
             if (negate) {
                 ret[0] = ret[0].negate();
             }
@@ -207,7 +211,7 @@ public class OblateView extends FrameView {
         if (negate) {
             dd = dd.negate();
         }
-        return dd;
+        return dd.setScale(6, BigDecimal.ROUND_HALF_EVEN);
 
     }
     
@@ -219,9 +223,9 @@ public class OblateView extends FrameView {
             BigDecimal f = new BigDecimal(this.nauticalMiles.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
             this.miles.setText(f.multiply(new BigDecimal("1.15077945")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.kilometers.setText(f.multiply(new BigDecimal("1.85200")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.yards.setText(f.multiply(new BigDecimal("2025.37183")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.feet.setText(f.multiply(new BigDecimal("6076.11549")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.meters.setText(f.multiply(new BigDecimal("1852.0")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.yards.setText(f.multiply(new BigDecimal("2025.37183")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.feet.setText(f.multiply(new BigDecimal("6076.11549")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.meters.setText(f.multiply(new BigDecimal("1852.0")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Error! Malformed number.";
@@ -241,9 +245,9 @@ public class OblateView extends FrameView {
             BigDecimal f = new BigDecimal(this.miles.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
             this.nauticalMiles.setText(f.multiply(new BigDecimal("0.868976242")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.kilometers.setText(f.multiply(new BigDecimal("1.609344")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.yards.setText(f.multiply(new BigDecimal("1760.0")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.feet.setText(f.multiply(new BigDecimal("5280.0")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.meters.setText(f.multiply(new BigDecimal("1609.344")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.yards.setText(f.multiply(new BigDecimal("1760.0")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.feet.setText(f.multiply(new BigDecimal("5280.0")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.meters.setText(f.multiply(new BigDecimal("1609.344")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Error! Malformed number.";
@@ -263,9 +267,9 @@ public class OblateView extends FrameView {
             BigDecimal f = new BigDecimal(this.kilometers.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
             this.nauticalMiles.setText(f.multiply(new BigDecimal("0.539956803")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.miles.setText(f.multiply(new BigDecimal("0.621371192")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.yards.setText(f.multiply(new BigDecimal("1093.6133")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.feet.setText(f.multiply(new BigDecimal("3280.8399")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.meters.setText(f.multiply(new BigDecimal("1000.0")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.yards.setText(f.multiply(new BigDecimal("1093.6133")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.feet.setText(f.multiply(new BigDecimal("3280.8399")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.meters.setText(f.multiply(new BigDecimal("1000.0")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Error! Malformed number.";
@@ -286,8 +290,8 @@ public class OblateView extends FrameView {
             this.nauticalMiles.setText(f.multiply(new BigDecimal("0.000493736501")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.miles.setText(f.multiply(new BigDecimal("0.000568181818")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.kilometers.setText(f.multiply(new BigDecimal("0.0009144")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.feet.setText(f.multiply(new BigDecimal("3.0")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.meters.setText(f.multiply(new BigDecimal("0.9144")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.feet.setText(f.multiply(new BigDecimal("3.0")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.meters.setText(f.multiply(new BigDecimal("0.9144")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Error! Malformed number.";
@@ -308,8 +312,8 @@ public class OblateView extends FrameView {
             this.nauticalMiles.setText(f.multiply(new BigDecimal("0.000164578834")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.miles.setText(f.multiply(new BigDecimal("0.000189393939")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.kilometers.setText(f.multiply(new BigDecimal("0.0003048")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.yards.setText(f.multiply(new BigDecimal("0.333333333")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.meters.setText(f.multiply(new BigDecimal("0.3048")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.yards.setText(f.multiply(new BigDecimal("0.333333333")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.meters.setText(f.multiply(new BigDecimal("0.3048")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Error! Malformed number.";
@@ -330,8 +334,8 @@ public class OblateView extends FrameView {
             this.nauticalMiles.setText(f.multiply(new BigDecimal("0.000539956803")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.miles.setText(f.multiply(new BigDecimal("0.000621371192")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
             this.kilometers.setText(f.multiply(new BigDecimal("0.001")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.yards.setText(f.multiply(new BigDecimal("1.0936133")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
-            this.feet.setText(f.multiply(new BigDecimal("3.2808399")).setScale(6, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.yards.setText(f.multiply(new BigDecimal("1.0936133")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.feet.setText(f.multiply(new BigDecimal("3.2808399")).setScale(2, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Error! Malformed number.";
@@ -351,10 +355,9 @@ public class OblateView extends FrameView {
 
             BigDecimal dms[];
             dms = this.getDMS(this.ddLat.getText().trim());
-
-            this.dLat.setText(dms[0].toString());
-            this.mLat.setText(dms[1].toString());
-            this.sLat.setText(dms[2].toString());
+            this.dLat.setText(dms[0].setScale(0, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.mLat.setText(dms[1].setScale(0, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.sLat.setText(dms[2].setScale(4, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Malformed number!";
@@ -377,7 +380,9 @@ public class OblateView extends FrameView {
 
             this.ddLat.setText(this.getDD(this.dLat.getText().trim(),
                                           this.mLat.getText().trim(),
-                                          this.sLat.getText().trim()).toString());
+                                          this.sLat.getText().trim()
+                                         ).setScale(6, BigDecimal.ROUND_HALF_EVEN)
+                                          .toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Malformed number!";
@@ -392,10 +397,9 @@ public class OblateView extends FrameView {
             }
             BigDecimal dms[];
             dms = this.getDMS(this.ddLon.getText().trim());
-
             this.dLon.setText(dms[0].toString());
             this.mLon.setText(dms[1].toString());
-            this.sLon.setText(dms[2].toString());
+            this.sLon.setText(dms[2].setScale(4, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Malformed number!";
@@ -407,15 +411,15 @@ public class OblateView extends FrameView {
 
     private void ddFLatKey() {
         try {
-            if (this.checkAndSetNullLatValue(this.ddFLat.getText().trim())) {
+            if (this.checkAndSetNullFLatValue(this.ddFLat.getText().trim())) {
                 return;
             }
             BigDecimal dms[];
             dms = this.getDMS(this.ddFLat.getText().trim());
 
-            this.dFLat.setText(dms[0].toString());
-            this.mFLat.setText(dms[1].toString());
-            this.sFLat.setText(dms[2].toString());
+            this.dFLat.setText(dms[0].setScale(0, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.mFLat.setText(dms[1].setScale(0, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.sFLat.setText(dms[2].setScale(4, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Malformed number!";
@@ -427,15 +431,15 @@ public class OblateView extends FrameView {
 
     private void ddFLonKey() {
         try {
-            if (this.checkAndSetNullLatValue(this.ddFLon.getText().trim())) {
+            if (this.checkAndSetNullFLonValue(this.ddFLon.getText().trim())) {
                 return;
             }
             BigDecimal dms[];
             dms = this.getDMS(this.ddFLon.getText().trim());
 
-            this.dFLon.setText(dms[0].toString());
-            this.mFLon.setText(dms[1].toString());
-            this.sFLon.setText(dms[2].toString());
+            this.dFLon.setText(dms[0].setScale(0, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.mFLon.setText(dms[1].setScale(0, BigDecimal.ROUND_HALF_EVEN).toString());
+            this.sFLon.setText(dms[2].setScale(4, BigDecimal.ROUND_HALF_EVEN).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Malformed number!";
@@ -458,7 +462,9 @@ public class OblateView extends FrameView {
 
             this.ddLon.setText(this.getDD(this.dLon.getText().trim(),
                                           this.mLon.getText().trim(),
-                                          this.sLon.getText().trim()).toString());
+                                          this.sLon.getText().trim()
+                                         ).setScale(6, BigDecimal.ROUND_HALF_EVEN)
+                                          .toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Malformed number!";
@@ -479,7 +485,8 @@ public class OblateView extends FrameView {
 
             this.ddFLat.setText(this.getDD(this.dFLat.getText().trim(),
                                            this.mFLat.getText().trim(),
-                                           this.sFLat.getText().trim()).toString());
+                                           this.sFLat.getText().trim()
+                                          ).toString());
         }
         catch (NumberFormatException nfe) {
             String err = "Malformed number!";
@@ -513,6 +520,7 @@ public class OblateView extends FrameView {
             this.azimuthErrorLabel.setText("");
             return;
         }
+        
         try {
             Double az = Double.valueOf(this.azimuth.getText().trim()).doubleValue();
             this.azimuthErrorLabel.setText("");
@@ -600,6 +608,11 @@ public class OblateView extends FrameView {
 
         ddLat.setText(resourceMap.getString("ddLat.text")); // NOI18N
         ddLat.setName("ddLat"); // NOI18N
+        ddLat.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ddLatFocusLost(evt);
+            }
+        });
         ddLat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ddLatKeyReleased(evt);
@@ -608,6 +621,11 @@ public class OblateView extends FrameView {
 
         ddLon.setText(resourceMap.getString("ddLon.text")); // NOI18N
         ddLon.setName("ddLon"); // NOI18N
+        ddLon.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ddLonFocusLost(evt);
+            }
+        });
         ddLon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ddLonKeyReleased(evt);
@@ -765,6 +783,11 @@ public class OblateView extends FrameView {
 
         nauticalMiles.setText(resourceMap.getString("nauticalMiles.text")); // NOI18N
         nauticalMiles.setName("nauticalMiles"); // NOI18N
+        nauticalMiles.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                nauticalMilesFocusLost(evt);
+            }
+        });
         nauticalMiles.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 nauticalMilesKeyReleased(evt);
@@ -773,6 +796,11 @@ public class OblateView extends FrameView {
 
         miles.setText(resourceMap.getString("miles.text")); // NOI18N
         miles.setName("miles"); // NOI18N
+        miles.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                milesFocusLost(evt);
+            }
+        });
         miles.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 milesKeyReleased(evt);
@@ -781,6 +809,11 @@ public class OblateView extends FrameView {
 
         kilometers.setText(resourceMap.getString("kilometers.text")); // NOI18N
         kilometers.setName("kilometers"); // NOI18N
+        kilometers.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                kilometersFocusLost(evt);
+            }
+        });
         kilometers.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 kilometersKeyReleased(evt);
@@ -789,6 +822,11 @@ public class OblateView extends FrameView {
 
         yards.setText(resourceMap.getString("yards.text")); // NOI18N
         yards.setName("yards"); // NOI18N
+        yards.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                yardsFocusLost(evt);
+            }
+        });
         yards.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 yardsKeyReleased(evt);
@@ -797,6 +835,11 @@ public class OblateView extends FrameView {
 
         feet.setText(resourceMap.getString("feet.text")); // NOI18N
         feet.setName("feet"); // NOI18N
+        feet.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                feetFocusLost(evt);
+            }
+        });
         feet.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 feetKeyReleased(evt);
@@ -805,6 +848,11 @@ public class OblateView extends FrameView {
 
         meters.setText(resourceMap.getString("meters.text")); // NOI18N
         meters.setName("meters"); // NOI18N
+        meters.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                metersFocusLost(evt);
+            }
+        });
         meters.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 metersKeyReleased(evt);
@@ -901,6 +949,11 @@ public class OblateView extends FrameView {
 
         ddFLat.setText(resourceMap.getString("ddFLat.text")); // NOI18N
         ddFLat.setName("ddFLat"); // NOI18N
+        ddFLat.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ddFLatFocusLost(evt);
+            }
+        });
         ddFLat.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ddFLatKeyReleased(evt);
@@ -909,6 +962,11 @@ public class OblateView extends FrameView {
 
         ddFLon.setText(resourceMap.getString("ddFLon.text")); // NOI18N
         ddFLon.setName("ddFLon"); // NOI18N
+        ddFLon.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                ddFLonFocusLost(evt);
+            }
+        });
         ddFLon.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 ddFLonKeyReleased(evt);
@@ -1190,77 +1248,100 @@ public class OblateView extends FrameView {
     }// </editor-fold>//GEN-END:initComponents
 
     private void nauticalMilesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_nauticalMilesKeyReleased
+        this.clearStatusMsg();
         this.nauticalMilesKey();
     }//GEN-LAST:event_nauticalMilesKeyReleased
 
     private void milesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_milesKeyReleased
+        this.clearStatusMsg();
         this.milesKey();
     }//GEN-LAST:event_milesKeyReleased
 
     private void kilometersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_kilometersKeyReleased
+        this.clearStatusMsg();
         this.kilometersKey();
     }//GEN-LAST:event_kilometersKeyReleased
 
     private void yardsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_yardsKeyReleased
+        this.clearStatusMsg();
         this.yardsKey();
     }//GEN-LAST:event_yardsKeyReleased
 
     private void ddLatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ddLatKeyReleased
+        this.clearStatusMsg();
         this.ddLatKey();
     }//GEN-LAST:event_ddLatKeyReleased
 
     private void dLatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dLatKeyReleased
+        this.clearStatusMsg();
         this.dLatKey();
     }//GEN-LAST:event_dLatKeyReleased
 
     private void feetKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_feetKeyReleased
+        this.clearStatusMsg();
         this.feetKey();
     }//GEN-LAST:event_feetKeyReleased
 
     private void metersKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_metersKeyReleased
+        this.clearStatusMsg();
         this.metersKey();
     }//GEN-LAST:event_metersKeyReleased
 
     private void ddLonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ddLonKeyReleased
+        this.clearStatusMsg();
         this.ddLonKey();
     }//GEN-LAST:event_ddLonKeyReleased
 
     private void ddFLatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ddFLatKeyReleased
+        this.clearStatusMsg();
         this.ddFLatKey();
     }//GEN-LAST:event_ddFLatKeyReleased
 
     private void ddFLonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ddFLonKeyReleased
+        this.clearStatusMsg();
         this.ddFLonKey();
     }//GEN-LAST:event_ddFLonKeyReleased
 
     private void dLonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dLonKeyReleased
+        this.clearStatusMsg();
         this.dLonKey();
     }//GEN-LAST:event_dLonKeyReleased
 
     private void dFLatKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dFLatKeyReleased
+        this.clearStatusMsg();
         this.dFLatKey();
     }//GEN-LAST:event_dFLatKeyReleased
 
     private void dFLonKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dFLonKeyReleased
+        this.clearStatusMsg();
         this.dFLonKey();
     }//GEN-LAST:event_dFLonKeyReleased
 
     private void azimuthKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_azimuthKeyReleased
+        this.clearStatusMsg();
         this.azimuthKey();
     }//GEN-LAST:event_azimuthKeyReleased
 
     private void finalPointButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_finalPointButtonMouseReleased
+        this.clearStatusMsg();
         try {
-            double lon = Double.valueOf(this.ddLon.getText().trim()).doubleValue();
-            double lat = Double.valueOf(this.ddLat.getText().trim()).doubleValue();
-            double range = Double.valueOf(this.kilometers.getText().trim()).doubleValue();
-            double az = Double.valueOf(this.azimuth.getText().trim()).doubleValue();
+            //double lon = Double.valueOf(this.ddLon.getText().trim()).doubleValue();
+            //double lat = Double.valueOf(this.ddLat.getText().trim()).doubleValue();
+            //double range = Double.valueOf(this.kilometers.getText().trim()).doubleValue();
+            //double az = Double.valueOf(this.azimuth.getText().trim()).doubleValue();
+            BigDecimal lon = new BigDecimal(this.ddLon.getText().trim())
+                                 .setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            BigDecimal lat = new BigDecimal(this.ddLat.getText().trim())
+                                 .setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            BigDecimal range = new BigDecimal(this.kilometers.getText().trim())
+                                 .setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            BigDecimal az = new BigDecimal(this.azimuth.getText().trim())
+                                 .setScale(2, BigDecimal.ROUND_HALF_EVEN);
+            Point wp = new Point(lon.doubleValue(), lat.doubleValue());
+            Point fin = wp.geoWaypoint(range.doubleValue(), az.doubleValue());
 
-            Point wp = new Point(lon, lat);
-            Point fin = wp.geoWaypoint(range, az);
-
-            BigDecimal flat = new BigDecimal(String.valueOf(fin._y)).setScale(8, BigDecimal.ROUND_HALF_EVEN);
-            BigDecimal flon = new BigDecimal(String.valueOf(fin._x)).setScale(8, BigDecimal.ROUND_HALF_EVEN);
+            BigDecimal flat = new BigDecimal(String.valueOf(fin._y)).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            BigDecimal flon = new BigDecimal(String.valueOf(fin._x)).setScale(6, BigDecimal.ROUND_HALF_EVEN);
             this.ddFLat.setText(flat.toString());
             this.ddFLon.setText(flon.toString());
 
@@ -1275,6 +1356,7 @@ public class OblateView extends FrameView {
     }//GEN-LAST:event_finalPointButtonMouseReleased
 
     private void rangeAzimuthButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_rangeAzimuthButtonMouseReleased
+        this.clearStatusMsg();
         try {
             double lon = Double.valueOf(this.ddLon.getText().trim()).doubleValue();
             double lat = Double.valueOf(this.ddLat.getText().trim()).doubleValue();
@@ -1284,7 +1366,7 @@ public class OblateView extends FrameView {
             Point initialPoint = new Point(lon, lat);
             Point finalPoint = new Point(flon, flat);
             
-            BigDecimal az = new BigDecimal(String.valueOf(initialPoint.geoBearingTo(finalPoint))).setScale(4, BigDecimal.ROUND_HALF_EVEN);
+            BigDecimal az = new BigDecimal(String.valueOf(initialPoint.geoBearingTo(finalPoint))).setScale(2, BigDecimal.ROUND_HALF_EVEN);
             BigDecimal km = new BigDecimal(String.valueOf(initialPoint.geoDistanceTo(finalPoint))).setScale(6, BigDecimal.ROUND_HALF_EVEN);
             this.azimuth.setText(az.toString());
             this.kilometers.setText(km.toString());
@@ -1301,13 +1383,123 @@ public class OblateView extends FrameView {
 
     private void azimuthFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_azimuthFocusLost
         try {
-            BigDecimal az = new BigDecimal(this.azimuth.getText().trim()).setScale(4, BigDecimal.ROUND_HALF_EVEN);
+            BigDecimal az = new BigDecimal(this.azimuth.getText().trim()).setScale(2, BigDecimal.ROUND_HALF_EVEN);
             this.azimuth.setText(az.toString());
         }
         catch (NumberFormatException nfe) {
             //
         }
     }//GEN-LAST:event_azimuthFocusLost
+
+    private void ddLatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ddLatFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.ddLat.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            this.ddLat.setText(temp.toString());
+            this.ddLatKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_ddLatFocusLost
+
+    private void ddLonFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ddLonFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.ddLon.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            this.ddLon.setText(temp.toString());
+            this.ddLonKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_ddLonFocusLost
+
+    private void nauticalMilesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nauticalMilesFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.nauticalMiles.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            this.nauticalMiles.setText(temp.toString());
+            this.nauticalMilesKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_nauticalMilesFocusLost
+
+    private void milesFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_milesFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.miles.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            this.miles.setText(temp.toString());
+            this.milesKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_milesFocusLost
+
+    private void kilometersFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_kilometersFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.kilometers.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            this.kilometers.setText(temp.toString());
+            this.kilometersKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_kilometersFocusLost
+
+    private void yardsFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_yardsFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.yards.getText().trim()).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+            this.yards.setText(temp.toString());
+            this.yardsKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_yardsFocusLost
+
+    private void feetFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_feetFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.feet.getText().trim()).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+            this.feet.setText(temp.toString());
+            this.feetKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_feetFocusLost
+
+    private void metersFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_metersFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.meters.getText().trim()).setScale(2, BigDecimal.ROUND_HALF_EVEN);
+            this.meters.setText(temp.toString());
+            this.metersKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_metersFocusLost
+
+    private void ddFLatFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ddFLatFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.ddFLat.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            this.ddFLat.setText(temp.toString());
+            this.ddFLatKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_ddFLatFocusLost
+
+    private void ddFLonFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_ddFLonFocusLost
+        try {
+            BigDecimal temp = new BigDecimal(this.ddFLon.getText().trim()).setScale(6, BigDecimal.ROUND_HALF_EVEN);
+            this.ddFLon.setText(temp.toString());
+            this.ddFLonKey();
+        }
+        catch (NumberFormatException nfe) {
+            //
+        }
+    }//GEN-LAST:event_ddFLonFocusLost
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField azimuth;
