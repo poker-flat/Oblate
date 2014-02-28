@@ -24,7 +24,7 @@ desired location and run Oblate.jar from there (either via a GUI or the command 
 Distributing
 ------------
 
-You can distribute the app how ever you wish, but I what use right now is
+You can distribute the app how ever you wish, but what I use right now is
 One-Jar. Check out http://one-jar.sourceforge.net/ and read all the
 documentation.
 
